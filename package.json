@@ -4,7 +4,7 @@
 	"description": "Small program to convert PDF file to specific XMl structure",
 	"main": "index.js",
 	"scripts": {
-		"start": "electron ."
+		"start": "electron main.js"
 	},
 	"repository": {
 		"type": "git",

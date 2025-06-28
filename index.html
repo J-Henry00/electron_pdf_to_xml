@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PDF to XML</title>
+	</head>
+	<style>
+		button#convert {
+			margin-bottom: 1rem;
+		}
+	</style>
+	<body>
+		<h1>PDF to XML</h1>
+		<input type="file" name="pdffile" id="pdffile" />
+		<button id="convert">Convert</button><br />
+		<textarea
+			name="output"
+			id="output"
+			cols="30"
+			rows="10"
+			placeholder="XML will display here.."></textarea
+		><br />
+		<button id="download">Download XML</button>
+
+		<script>
+			const inputFile = document.querySelector('input#pdffile');
+			const convertButton = document.querySelector('button#convert');
+			const output = document.querySelector('textarea#output');
+			const downloadButton = document.querySelector('button#download');
+
+			convertButton.addEventListener('click', () => {
+				const file = inputFile.files[0];
+				const formData = new FormData();
+				formData.append('pdffile', file);
+
+				fetch('/convert', {
+					method: 'POST',
+					body: formData,
+				})
+					.then((response) => response.text())
+					.then((data) => {
+						output.value = data;
+					})
+					.catch((error) => {
+						console.error('Error:', error);
+					});
+			});
+		</script>
+		<script>
+			(async () => {
+				document.title = `PDF to XML (version ${await window.versions.pdftoxml()})`;
+			})();
+		</script>
+	</body>
+</html>
