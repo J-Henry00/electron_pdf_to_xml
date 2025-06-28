@@ -1,0 +1,27 @@
+{
+	"name": "pdf_to_xml",
+	"version": "1.0.0",
+	"description": "Small program to convert PDF file to specific XMl structure",
+	"main": "index.js",
+	"scripts": {
+		"start": "electron ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/J-Henry00/electron_pdf_to_xml.git"
+	},
+	"keywords": [
+		"PDF",
+		"XML",
+		"Electron"
+	],
+	"author": "J-Henry00",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/J-Henry00/electron_pdf_to_xml/issues"
+	},
+	"homepage": "https://github.com/J-Henry00/electron_pdf_to_xml#readme",
+	"devDependencies": {
+		"electron": "^37.1.0"
+	}
+}
